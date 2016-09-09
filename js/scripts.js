@@ -81,6 +81,8 @@ $(document).ready(function() {
 	var random = Math.floor(Math.random() * 20);
 	// $('.quote').html(quotes[random].quote);
 	// $('.author p').html(quotes[random].author);
+
+	// Default quotation on page load:
 	$('.quote').html(quotes[2].quote);
 	$('.author p').html(quotes[2].author);
 
@@ -132,15 +134,14 @@ $(document).ready(function() {
 			return;			
 		}
 
-		var newRandom = Math.floor(Math.random() * 20);
-		while (random === newRandom) {
-			newRandom = Math.floor(Math.random() * 20);
+		while (random === memArray[memArray.length - 1]) {
+			random = Math.floor(Math.random() * 20);
 		}
-		$('.quote').html(quotes[newRandom].quote);
-		$('.author-name').html(quotes[newRandom].author);
-		reposition(quotes[newRandom].quote);
-		memArray.push(newRandom);		
-		random = newRandom;
+		$('.quote').html(quotes[random].quote);
+		$('.author-name').html(quotes[random].author);
+		reposition(quotes[random].quote);
+		memArray.push(random);
+		random = Math.floor(Math.random() * 20);		
 	});
 
 
